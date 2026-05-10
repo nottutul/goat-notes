@@ -6,6 +6,8 @@ import { ThemeProvider } from "@/components/ThemeProvider"
 import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
 import Header from "@/components/Header";
+import React from "react";
+
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 

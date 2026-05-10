@@ -8,22 +8,53 @@ import { Input } from './ui/input';
 import { Button } from './ui/button';
 import { Loader2 } from 'lucide-react';
 import Link from 'next/link';
+import { toast } from 'sonner';
+import { loginAction, signUpAction } from '@/actions/users';
 
 type Props = {
     type: "login" | "signup";
 }
 
 const AuthForm = ({type}: Props) => {
-  const isLogin = type === "login"
+  const isLoginForm = type === "login"
   const router = useRouter();
-
+  const [isPending, startTransition] = useTransition()
+  
+  
   const handleSubmit = (formData: FormData) => {
-    console.log("Form data submitted")
+    startTransition(async ()=>{
+        const email = formData.get("email") as string;
+        const password = formData.get("password") as string;
+
+        let errorMassage;
+        let title; 
+        let description;
+
+        if (isLoginForm){
+            errorMassage = (await loginAction(email, password)).errorMassage;
+            title = 'Logged In'
+            description = 'You have been logged in successfully'
+        }
+        else{
+            errorMassage = (await signUpAction(email, password)).errorMassage;
+            title = 'Signed Up'
+            description = 'Check Your Email for Confirmation'
+        }
+
+        if(!errorMassage){
+            toast(title ,{description});
+            router.replace('/');
+        }else{
+            toast(title ,{description: errorMassage});
+        }
+    })
   }
 
-  const [isPending, startTransition] = useTransition(); 
 
-   return <form>
+
+
+
+   return <form action={handleSubmit}>
     <CardContent className='grid w-full items-center gap-4'>
        <div className='flex flex-col space-y-2'>
           <Label htmlFor='email'>Email</Label>
@@ -48,12 +79,12 @@ const AuthForm = ({type}: Props) => {
     </CardContent>
     <CardFooter className='mt-6 flex flex-col gap-4'> 
         <Button type="submit" className="w-full">
-            {isPending ? <Loader2 className='animate-spin'/> : isLogin ? "Login" : "Sign Up"}
+            {isPending ? <Loader2 className='animate-spin'/> : isLoginForm ? "Login" : "Sign Up"}
         </Button>
         <p className="mt-5 text-center">
-            {isLogin ? "Don't have an account? " : "Already have an account? "}{" "}
-            <Link href={isLogin? "/signup" : "/login"} className='text-blue-600 hover:underline'>
-                {isLogin ? "Sign Up" : "Login"}
+            {isLoginForm ? "Don't have an account? " : "Already have an account? "}{" "}
+            <Link href={isLoginForm? "/signup" : "/login"} className='text-blue-600 hover:underline'>
+                {isLoginForm ? "Sign Up" : "Login"}
             </Link>
             
         </p> 

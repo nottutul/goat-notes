@@ -6,9 +6,10 @@ import { buttonVariants } from './ui/button'
 import { cn } from '@/lib/utils' 
 import DarkModeToggle from './DarkModeToggle'
 import LogoutButton from './LogoutButton'
+import { getUser } from '@/auth/server'
 
-const Header = () => {
-  const user = null;
+async function Header() {
+  const user = await getUser();
     
   return (
     <header className='relative flex h-24 w-full items-center gap-5 bg-popover px-3 sm:px-8' style={{boxShadow: shadow}}>
