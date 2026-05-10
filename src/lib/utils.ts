@@ -8,6 +8,6 @@ export function cn(...inputs: ClassValue[]) {
 
 
 export const handleError = (error: unknown)=>{
-    if(error instanceof Error) return {errorMassage:error.message};
-    else return {errorMassage:"An error occurred, please try again later"};
+    if(error instanceof Error) return {errorMessage:error.message};
+    else return {errorMessage:"An error occurred, please try again later"};
 }

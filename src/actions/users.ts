@@ -6,14 +6,14 @@ import { handleError } from "@/lib/utils";
 export const loginAction = async(email:string,password:string)=>{
     try{
         const {auth} = await createClient();
-        const { error} = await auth.signInWithPassword({
+        const {error} = await auth.signInWithPassword({
             email,
             password
         })
 
         if(error) throw error;
 
-        return({errorMassage:null})
+        return({errorMessage:null})
     }catch(error){
         return handleError(error);
     }
@@ -22,11 +22,11 @@ export const loginAction = async(email:string,password:string)=>{
 export const logoutAction = async()=>{
     try{
         const {auth} = await createClient();
-        const { error} = await auth.signOut()
+        const {error} = await auth.signOut()
 
         if(error) throw error;
 
-        return({errorMassage:null})
+        return({errorMessage:null})
     }catch(error){
         return handleError(error);
     }
@@ -49,7 +49,7 @@ export const signUpAction = async(email:string,password:string)=>{
         // add user to database 
     
 
-        return({errorMassage:null})
+        return({errorMessage:null})
     }catch(error){
         return handleError(error);
     }
