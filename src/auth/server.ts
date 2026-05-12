@@ -35,7 +35,10 @@ export async function getUser() {
     const userObject = await auth.getUser()
     
     if(userObject.error){
-      console.error(userObject.error)
+      // Don't log expected error when no user is logged in
+      if (userObject.error.name !== 'AuthSessionMissingError') {
+        console.error(userObject.error)
+      }
       return null;
     }
 
