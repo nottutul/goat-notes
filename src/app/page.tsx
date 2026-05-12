@@ -43,7 +43,7 @@ export default async function Home() {
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
           <Link
-            href="https://github.com"
+            href="https://github.com/nottutul/goat-notes"
             target="_blank"
             className="inline-flex h-12 items-center justify-center rounded-full border border-input bg-background/50 backdrop-blur-sm px-8 text-base font-medium shadow-sm transition-all hover:bg-accent hover:text-accent-foreground hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >

@@ -26,7 +26,7 @@ export async function updateSession(request: NextRequest) {
     request,
   })
 
-  console.log("proxy ran");
+  // console.log("proxy ran");
 
 
 
