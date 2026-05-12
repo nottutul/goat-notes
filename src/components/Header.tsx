@@ -12,7 +12,7 @@ async function Header() {
   const user = await getUser();
     
   return (
-    <header className='relative flex h-24 w-full items-center gap-5 bg-popover px-3 sm:px-8' style={{boxShadow: shadow}}>
+    <header className='sticky top-0 z-50 flex h-24 w-full items-center gap-5 bg-popover px-3 sm:px-8' style={{boxShadow: shadow}}>
 
         <Link href="/" className='flex items-center gap-3'>
             <Image 

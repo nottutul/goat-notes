@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
 import Header from "@/components/Header";
 import React from "react";
+import { AppSidebar } from "@/components/AppSidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
@@ -39,7 +41,7 @@ export default function RootLayout({
             {children}
           </main>
           <Toaster/> 
-            
+         
           </ThemeProvider>
         </body>
       </html>
