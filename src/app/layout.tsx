@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
 import Header from "@/components/Header";
 import React from "react";
-import { AppSidebar } from "@/components/AppSidebar";
+import AppSidebar from "@/components/AppSidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
 
 
@@ -33,9 +33,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
           
-          <div className="flex flex-col w-full">
-            <Header/>
-          </div>
+          <Header/>
 
           <main>
             {children}

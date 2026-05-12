@@ -1,8 +1,9 @@
-import { AppSidebar } from "@/components/AppSidebar";
+
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import React from "react";
 import { getUser } from "@/auth/server";
 import { redirect } from "next/navigation";
+import AppSidebar from "@/components/AppSidebar";
 
 export default async function MyNotesLayout({
   children,
