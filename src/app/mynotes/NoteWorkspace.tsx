@@ -26,7 +26,7 @@ export function NoteWorkspace({ initialText = "", noteId, action, buttonText }: 
           name="text" 
           value={noteContent}
           onChange={(e) => setNoteContent(e.target.value)}
-          placeholder="Write your note here..." 
+          placeholder="Write your note here...." 
           className="flex-1 text-lg p-4 resize-none w-full bg-background shadow-sm"
           required
         />
