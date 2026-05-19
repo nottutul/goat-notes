@@ -4,7 +4,7 @@ import { useChat } from "@ai-sdk/react";
 import { useState, useEffect, useRef } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-import { ScrollArea } from "./ui/scroll-area";
+
 import { Bot, User, Send, Loader2 } from "lucide-react";
 
 interface AiChatProps {
@@ -29,13 +29,11 @@ export function AiChat({ noteContent }: AiChatProps) {
     setInput("");
   };
 
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Auto-scroll to bottom when new messages appear
   useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-    }
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
   return (
@@ -50,7 +48,7 @@ export function AiChat({ noteContent }: AiChatProps) {
         </p>
       </div>
 
-      <ScrollArea className="flex-1 p-4" ref={scrollRef}>
+      <div className="flex-1 overflow-y-auto p-4">
         {messages.length === 0 ? (
           <div className="h-full flex flex-col items-center justify-center text-muted-foreground space-y-3 pt-12">
             <Bot className="w-12 h-12 opacity-20" />
@@ -105,9 +103,10 @@ export function AiChat({ noteContent }: AiChatProps) {
                 </div>
               </div>
             )}
+            <div ref={messagesEndRef} />
           </div>
         )}
-      </ScrollArea>
+      </div>
 
       <div className="p-3 border-t bg-background">
         {error && (

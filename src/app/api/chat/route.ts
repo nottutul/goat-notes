@@ -18,7 +18,7 @@ ${noteContent || "(Empty note)"}
 """`;
 
     const result = streamText({
-      model: google('gemini-2.5-flash'), 
+      model: google('gemini-3.1-flash-lite'), 
       system: systemPrompt,
       messages: await convertToModelMessages(messages),
     });
@@ -29,5 +29,6 @@ ${noteContent || "(Empty note)"}
     return new Response("Internal Server Error", { status: 500 });
   }
 }
+
 
 
