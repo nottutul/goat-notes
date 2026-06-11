@@ -54,7 +54,7 @@ model Note {
 +------------------+                   +------------------+
 |      USER        |                   |      NOTE        |
 +------------------+                   +------------------+
-| id (PK, UUID)   |<------------------| id (PK, UUID)    |
+| id (PK, UUID)    |<------------------| id (PK, UUID)    |
 | email (Unique)   | 1               * | text (String)    |
 | createdAt        |                   | authorId (FK)    |
 | updatedAt        |                   | createdAt        |
