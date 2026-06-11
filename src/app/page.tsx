@@ -65,7 +65,7 @@ export default async function Home() {
               <Shield className="h-6 w-6" />
             </div>
             <h3 className="text-xl font-semibold mb-2">Secure & Private</h3>
-            <p className="text-muted-foreground">Your notes are encrypted and securely stored in the cloud.</p>
+            <p className="text-muted-foreground">Your notes are securely stored in the cloud.</p>
           </div>
           <div className="flex flex-col items-center text-center p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 shadow-sm transition-all hover:shadow-md hover:border-border hover:-translate-y-1">
             <div className="h-12 w-12 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-500 mb-4">

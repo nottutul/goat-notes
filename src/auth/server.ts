@@ -5,7 +5,7 @@ export async function createClient() {
   const cookieStore = await cookies()
 
   const client =  createServerClient(
-    process.env.SUPABASE_URL!,
+    process.env.SUPABASE_URL!, 
     process.env.SUPABASE_PUBLISHABLE_KEY!,
     {
       cookies: {
